@@ -6,14 +6,28 @@
     <script defer src="./main.js"></script>
   </head>
   <body>
-    <div class="progress-wrapper">
-      <svg width="300" height="300">
-        <circle class="background" r="125" cx="150" cy="150"></circle>
-        <circle class="progress" r="125" cx="150" cy="150"></circle>
-      </svg>
-    </div>
-    <div class="ui-wrapper">
-      
+    <h1>Progress</h1>
+    <div class="wrapper">
+      <div class="progress-wrapper">
+        <svg width="300" height="300">
+          <circle class="background" r="125" cx="150" cy="150"></circle>
+          <circle class="progress" r="125" cx="150" cy="150"></circle>
+        </svg>
+      </div>
+      <div class="ui-wrapper">
+        <div class="value-wrapper">
+          <input type="text" id="value" class="value-input">
+          <label for="value" class="ui-label">Value</label>
+        </div>
+        <div class="animated-wrapper">
+          <input type="checkbox" id="animated" class="toggle">
+          <label for="animated" class="ui-label">Animated</label>
+        </div>
+        <div class="hidden-wrapper">
+          <input type="checkbox" id="hidden" class="toggle">
+          <label for="hidden" class="ui-label">Hidden</label>
+        </div>
+      </div>
     </div>
   </body>
 </html>

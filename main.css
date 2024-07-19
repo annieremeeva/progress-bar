@@ -8,7 +8,7 @@
   padding: 0;
 }
 
-body {
+.wrapper {
   display: flex;
   height: 100vh;
   flex-direction: column;
@@ -39,7 +39,7 @@ body {
 }
 
 @media screen and (orientation: landscape) {
-  body {
+  .wrapper {
     flex-direction: row;
   }
 }
