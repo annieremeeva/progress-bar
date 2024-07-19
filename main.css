@@ -77,7 +77,8 @@ svg {
 }
 
 .value-input,
-.toggle {
+.animate-toggle,
+.hide-toggle {
   border-radius: calc(var(--input-height) / 2);
   width: var(--input-width);
   height: var(--input-height);
@@ -90,18 +91,21 @@ svg {
   font-size: 1rem;
 }
 
-.toggle {
+.animate-toggle,
+.hide-toggle {
   -moz-appearance: none;
   -webkit-appearance: none;
   appearance: none;
 }
-.toggle {
+.animate-toggle,
+.hide-toggle {
   position: relative;
   display: inline-block;
   background-color: var(--secondary-color);
 }
 
-.toggle::after {
+.animate-toggle::after,
+.hide-toggle::after {
   content: "";
   display: inline-block;
   position: absolute;
@@ -114,12 +118,31 @@ svg {
   transform: translateX(0);
 }
 
-.toggle:checked {
+.animate-toggle:checked,
+.hide-toggle:checked {
   background-color: var(--main-color);
 }
 
-.toggle:checked::after {
+.animate-toggle:checked::after,
+.hide-toggle:checked::after {
   transform: translateX(calc((var(--input-width)) - (var(--toggle-circle)) - 2 * (var(--toggle-padding))));
+}
+
+.animated {
+  animation: rotation 1s linear infinite;
+}
+
+.hidden {
+  opacity: 0;
+}
+
+@keyframes rotation {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
 }
 
 @media screen and (orientation: landscape) {
