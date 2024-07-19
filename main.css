@@ -1,19 +1,41 @@
 :root {
   --main-color: #005cff;
   --secondary-color: #eaf0f6;
+  --input-width: 45px;
+  --input-height: 30px;
+  --height: 125px;
+  --toggle-circle: 26px;
+  --toggle-padding: 2px;
 }
 
 * {
   margin: 0;
   padding: 0;
+  font-family: 'Arial';
+  box-sizing: border-box;
+  font-size: 1rem;
+  font-weight: 700;
+}
+
+body {
+  padding: 1rem
+}
+
+h1 {
+  padding-block: 0.5rem;
 }
 
 .wrapper {
   display: flex;
-  height: 100vh;
+  height: 80vh;
   flex-direction: column;
   align-items: center;
   justify-content: space-around;
+}
+
+svg {
+  width: var(--height);
+  height: var(--height);
 }
 
 .progress-wrapper {
@@ -25,21 +47,87 @@
 .background {
   fill: none;
   stroke: var(--secondary-color);
-  stroke-width: 20px;
+  stroke-width: calc(var(--height)/10);
 }
 
 .progress {
   fill: none;
   stroke: var(--main-color);
-  stroke-width: 20px;
-  stroke-dasharray: 790;
-  stroke-dashoffset: 600;
+  stroke-width: calc(var(--height)/10);
   transform: rotate(-90deg);
   transform-origin: center;
+  transition: stroke-dashoffset 0.15s;
+}
+
+.ui-wrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: calc(var(--height) - 10px);
+  position: relative;
+  top: -15px;
+}
+
+.value-wrapper, 
+.animate-wrapper,
+.hide-wrapper {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: center;
+}
+
+.value-input,
+.toggle {
+  border-radius: calc(var(--input-height) / 2);
+  width: var(--input-width);
+  height: var(--input-height);
+}
+
+.value-input {
+  border: black solid 2px;
+  text-align: center;
+  font-weight: 700;
+  font-size: 1rem;
+}
+
+.toggle {
+  -moz-appearance: none;
+  -webkit-appearance: none;
+  appearance: none;
+}
+.toggle {
+  position: relative;
+  display: inline-block;
+  background-color: var(--secondary-color);
+}
+
+.toggle::after {
+  content: "";
+  display: inline-block;
+  position: absolute;
+  top: var(--toggle-padding);
+  left: var(--toggle-padding);
+  width: var(--toggle-circle);
+  height: var(--toggle-circle);
+  background-color: white;
+  border-radius: 50%;
+  transform: translateX(0);
+}
+
+.toggle:checked {
+  background-color: var(--main-color);
+}
+
+.toggle:checked::after {
+  transform: translateX(calc((var(--input-width)) - (var(--toggle-circle)) - 2 * (var(--toggle-padding))));
 }
 
 @media screen and (orientation: landscape) {
   .wrapper {
     flex-direction: row;
+    justify-content: space-evenly;
+  }
+  .ui-wrapper {
+    top: 0;
   }
 }
