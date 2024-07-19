@@ -1,0 +1,45 @@
+:root {
+  --main-color: #005cff;
+  --secondary-color: #eaf0f6;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  display: flex;
+  height: 100vh;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+}
+
+.progress-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.background {
+  fill: none;
+  stroke: var(--secondary-color);
+  stroke-width: 20px;
+}
+
+.progress {
+  fill: none;
+  stroke: var(--main-color);
+  stroke-width: 20px;
+  stroke-dasharray: 790;
+  stroke-dashoffset: 600;
+  transform: rotate(-90deg);
+  transform-origin: center;
+}
+
+@media screen and (orientation: landscape) {
+  body {
+    flex-direction: row;
+  }
+}
